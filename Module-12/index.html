@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Размеры и отступы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet">
+    <style>
+
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #f6f7f9;
+        }
+
+        header {
+            height: 100px;
+            padding: 0 40px;
+
+        }
+
+        section {
+            padding: 40px;
+        }
+
+        .fio {
+            height: 500px;
+        }
+
+        footer {
+            padding: 40px;
+        }
+
+        .fixed-container {
+            max-width: 1000px;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            /*background-color: aquamarine;*/
+            margin-bottom: 80px;
+        }
+
+        header > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fio > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background-image: url("local/man.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .services img {
+            width: 150px;
+            height: 150px;
+            margin: 30px 0;
+        }
+
+        .services > div {
+            width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .samples {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .samples img {
+            width: 280px;
+            margin: 30px 0 15px 0;
+        }
+
+        .samples > div {
+            width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .price-info {
+            background-color: #3d52fe;
+            color: white;
+        }
+
+        .light-button {
+            border: 1px solid black;
+            background-color: transparent;
+        }
+
+        .blue-button {
+            background-color: #3d52fe;
+            border: 1px solid #3d52fe;
+            color: white;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .popup-container {
+            background-color: #0000008c;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background-color: white;
+            width: 300px;
+            height: 300px;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .price-info-info > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: flex-start;
+            width: 50%;
+            margin: 40px 0;
+            font-size: 12px;
+        }
+
+        .top-right-phone {
+            margin-right: 15px;
+        }
+
+        .top-left-menu > a {
+            margin-right: 15px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .top-left-menu > a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .footer-info > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-info > div > a {
+            margin-right: 15px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .sm-icons {
+            height: 15px;
+        }
+
+        .sm-icons-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .fio-description{
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var container =
+                document.querySelector('.popup-container');
+            var popupButtons =
+                document.querySelectorAll('.open-popup');
+            for (let i = 0; i < popupButtons.length; i++) {
+                popupButtons[i].addEventListener('click', function(){
+                    container.style.display = 'flex';
+                });
+            }
+
+            container.addEventListener('click', function(event){
+                if(event.target == container) {
+                    container.style.display = 'none';
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+<div class="popup-container">
+    <form class="popup">
+        <input type="text" placeholder="Введите ваше имя" class="form-control">
+        <input type="email" placeholder="Введите ваш почтовый адрес" class="form-control">
+        <input type="submit" value="Отправить" class="form-control">
+    </form>
+</div>
+<header>
+    <div class="fixed-container">
+        <div class="top-left-menu">
+            <a href="#">Услуги</a>
+            <a href="#">Портфолио</a>
+            <a href="#">Стоимость</a>
+        </div>
+        <div>
+            <span class="top-right-phone">+7(499)995-55-77</span>
+            <button class="light-button open-popup">Заказать звонок</button>
+        </div>
+    </div>
+</header>
+<section class="fio">
+    <div class="fixed-container">
+        <h1>Дмитрий Алексеев</h1>
+        <p class="fio-description">Frontend-разработчик и веб-верстальщик</p>
+        <button class="blue-button open-popup">Узнать больше</button>
+    </div>
+</section>
+<section>
+    <div class="fixed-container">
+        <h2>Что я делаю</h2>
+        <div class="services">
+            <div>
+                <img src="local/1.png" alt="cat">
+                Верстка лендинг-страниц и сайтов любой сложности
+            </div>
+            <div>
+                <img src="local/2.png" alt="coffee">
+                Адаптивная верстка под все браузеры и устройства
+            </div>
+            <div>
+                <img src="local/2.png" alt="coffee dream">
+                Frontend-разработка и программирование
+            </div>
+            <div>
+                <img src="local/2.png" alt="lamp">
+                Исправление и работка существующей верстки
+            </div>
+        </div>
+        <button class="light-button open-popup">Узнать стоимость</button>
+    </div>
+</section>
+<section>
+    <div class="fixed-container">
+        <h2>Примеры работ</h2>
+        <div class="samples">
+            <div>
+                <img src="local/e1.png" alt="psychology">
+                Сайт психолога Веры Антоновой
+            </div>
+            <div>
+                <img src="local/e2.png" alt="kidClothes">
+                Сайт магазин детской одежды
+            </div>
+            <div>
+                <img src="local/e3.png" alt="fisher">
+                Сайт магазина "Рыболов"
+            </div>
+        </div>
+        <button class="light-button open-popup">Заказать проект</button>
+    </div>
+</section>
+<section class="price-info">
+    <div class="fixed-container">
+        <div class="price-info-info">
+            <div>
+                <h2>Адаптивная верстка под все устройства и браузеры от 1000 &#8381; всего за четыре часа.*</h2>
+            </div>
+            <div>
+                * Срок и стоимость могу отличаться от заявленных и рассчитываются индивидуально, в зависимости от
+                сложности задач.
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="fixed-container">
+        <div class="footer-info">
+            <div>
+                <a href="#">Услуги</a>
+                <a href="#">Портфолио</a>
+                <a href="#">Стоимость</a>
+            </div>
+            <div>
+                <span>dmitry@alekseev.com</span>
+                <span>+7(499)995-55-77</span>
+            </div>
+            <div>
+                <button class="light-button open-popup">Заказать звонок</button>
+                <div class="sm-icons-container">
+                    <a href="#"><img src="local/fb.png" alt="none" class="sm-icons"></a>
+                    <a href="#"><img src="local/vk.png" alt="none" class="sm-icons"></a>
+                    <a href="#"><img src="local/you.png" alt="none" class="sm-icons"></a>
+                    <a href="#"><img src="local/telegram.png" alt="none" class="sm-icons"></a>
+                    <a href="#"><img src="local/inst.png" alt="none" class="sm-icons"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
